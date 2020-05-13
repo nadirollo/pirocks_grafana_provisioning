@@ -1,0 +1,17 @@
+apiVersion: 1
+deleteDatasources:
+  - name: Prometheus
+    orgId: 1
+
+datasources:
+  - name: Prometheus
+    access: proxy
+    basicAuth: false
+    id: 1
+    isDefault: true
+    jsonData: {}
+    orgId: 1
+    readOnly: false
+    type: prometheus
+    typeLogoUrl: public/app/plugins/datasource/prometheus/img/prometheus_logo.svg
+    url: http://pired.node.pirocks.sentella.systems:9999
