@@ -14,4 +14,4 @@ datasources:
     readOnly: false
     type: prometheus
     typeLogoUrl: public/app/plugins/datasource/prometheus/img/prometheus_logo.svg
-    url: http://pired.node.pirocks.sentella.systems:9999
+    url: http://prometheus.service.sentella.systems:9090
