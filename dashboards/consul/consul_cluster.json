@@ -1,4 +1,30 @@
 {
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "6.2.4"
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph",
+      "version": ""
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "singlestat",
+      "name": "Singlestat",
+      "version": ""
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -12,12 +38,12 @@
       }
     ]
   },
-  "description": "Consul Cluster Metrics",
+  "description": "Get performance metrics from Consul metrics prometheus endpoint /agent/metrics?format=prometheus. Tested with Consul 1.4.4, Prometheus 2.10.0 and Grafana 6.2.4. Although can potentially work with other versions.",
   "editable": true,
   "gnetId": 10642,
   "graphTooltip": 0,
-  "id": 7,
-  "iteration": 1589458471940,
+  "id": null,
+  "iteration": 1564488298354,
   "links": [],
   "panels": [
     {
@@ -61,6 +87,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -112,14 +139,12 @@
       "datasource": "Prometheus",
       "description": "Is it running at all?",
       "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 5,
         "w": 4,
         "x": 4,
         "y": 0
       },
-      "hiddenSeries": false,
       "id": 1,
       "legend": {
         "avg": false,
@@ -134,9 +159,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
+      "options": {},
       "percentage": false,
       "pluginVersion": "6.1.2",
       "pointradius": 2,
@@ -254,6 +277,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -304,14 +328,12 @@
       "datasource": "Prometheus",
       "description": "Tracks the overall health of the local server cluster. If all servers are considered healthy by autopilot, this will be set to 1. If any are unhealthy, this will be 0.",
       "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 5,
         "w": 6,
         "x": 12,
         "y": 0
       },
-      "hiddenSeries": false,
       "id": 19,
       "legend": {
         "avg": false,
@@ -326,9 +348,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
+      "options": {},
       "percentage": false,
       "pluginVersion": "6.1.2",
       "pointradius": 2,
@@ -398,14 +418,12 @@
       "datasource": "Prometheus",
       "description": "This increments whenever a Consul server becomes a leader.",
       "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 5,
         "w": 6,
         "x": 18,
         "y": 0
       },
-      "hiddenSeries": false,
       "id": 10,
       "legend": {
         "avg": false,
@@ -420,9 +438,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
+      "options": {},
       "percentage": false,
       "pluginVersion": "6.1.2",
       "pointradius": 2,
@@ -488,16 +504,13 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
       "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 6,
         "w": 12,
         "x": 0,
         "y": 5
       },
-      "hiddenSeries": false,
       "id": 22,
       "legend": {
         "avg": false,
@@ -512,9 +525,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
+      "options": {},
       "percentage": false,
       "pointradius": 2,
       "points": false,
@@ -582,14 +593,12 @@
       "datasource": "Prometheus",
       "description": "consul.raft.state.candidate = this increments whenever a Consul server starts an election.  candidate == 0. Deviations from 0 might indicate flapping leadership.\n\nconsul.serf.member.join\tThis increments when an agent joins the cluster. If an agent flapped or failed this counter also increments when it re-joins.\t\n\nconsul.serf.member.left\tThis increments when an agent leaves the cluster.",
       "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 6,
         "w": 12,
         "x": 12,
         "y": 5
       },
-      "hiddenSeries": false,
       "id": 18,
       "legend": {
         "avg": false,
@@ -604,9 +613,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
+      "options": {},
       "percentage": false,
       "pluginVersion": "6.1.2",
       "pointradius": 2,
@@ -695,14 +702,12 @@
       "datasource": "Prometheus",
       "description": "GC pause is a \"stop-the-world\" event, meaning that all runtime threads are blocked until GC completes. Normally these pauses last only a few nanoseconds. But if memory usage is high, the Go runtime may GC so frequently that it starts to slow down Consul.\nWarning if total_gc_pause_ns exceeds 2 seconds/minute, critical if it exceeds 5 seconds/minute.",
       "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 6,
         "w": 12,
         "x": 0,
         "y": 11
       },
-      "hiddenSeries": false,
       "id": 20,
       "legend": {
         "avg": false,
@@ -717,9 +722,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
+      "options": {},
       "percentage": false,
       "pointradius": 2,
       "points": false,
@@ -793,14 +796,12 @@
       "datasource": "Prometheus",
       "description": "This counts the number of Raft transactions occurring over the interval, which is a general indicator of the write load on the Consul servers.",
       "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 6,
         "w": 12,
         "x": 12,
         "y": 11
       },
-      "hiddenSeries": false,
       "id": 9,
       "legend": {
         "avg": false,
@@ -815,9 +816,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -887,14 +886,12 @@
       "datasource": "Prometheus",
       "description": "This measures the number of bytes allocated by the Consul process. Consul keeps all of its data in memory. If Consul consumes all available memory, it will crash.",
       "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 6,
         "w": 12,
         "x": 0,
         "y": 17
       },
-      "hiddenSeries": false,
       "id": 15,
       "legend": {
         "avg": false,
@@ -909,9 +906,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
+      "options": {},
       "percentage": false,
       "pluginVersion": "6.1.2",
       "pointradius": 2,
@@ -983,14 +978,12 @@
       "datasource": "Prometheus",
       "description": "This measures the time it takes to commit a new entry to the Raft log on the leader. Generally these should all be fairly consistent and no more than a few milliseconds. Sudden changes in any of the timing values could be due to unexpected load on the Consul servers, or due to problems on the servers themselves.",
       "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 6,
         "w": 12,
         "x": 12,
         "y": 17
       },
-      "hiddenSeries": false,
       "id": 4,
       "legend": {
         "avg": false,
@@ -1005,9 +998,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1083,14 +1074,12 @@
       "datasource": "Prometheus",
       "description": "The amount of TCP messages that are sent/received from the server.",
       "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 12,
         "x": 0,
         "y": 23
       },
-      "hiddenSeries": false,
       "id": 3,
       "legend": {
         "avg": false,
@@ -1105,9 +1094,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1191,14 +1178,12 @@
       "datasource": "Prometheus",
       "description": "The amount of UDP messages in bytes that are sent/received from the server.",
       "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 12,
         "x": 12,
         "y": 23
       },
-      "hiddenSeries": false,
       "id": 5,
       "legend": {
         "avg": false,
@@ -1213,9 +1198,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1291,14 +1274,12 @@
       "datasource": "Prometheus",
       "description": "This measures the time it takes for the leader to write log entries to disk.",
       "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 6,
         "w": 12,
         "x": 0,
         "y": 30
       },
-      "hiddenSeries": false,
       "id": 8,
       "legend": {
         "avg": false,
@@ -1313,9 +1294,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1383,14 +1362,12 @@
       "dashes": false,
       "datasource": "Prometheus",
       "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 6,
         "w": 12,
         "x": 12,
         "y": 30
       },
-      "hiddenSeries": false,
       "id": 7,
       "legend": {
         "avg": false,
@@ -1405,9 +1382,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1476,14 +1451,12 @@
       "datasource": "Prometheus",
       "description": "This measures the time it takes to replicate log entries to followers. This is a general indicator of the load pressure on the Consul servers, as well as the performance of the communication between the servers.",
       "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 6,
         "w": 12,
         "x": 0,
         "y": 36
       },
-      "hiddenSeries": false,
       "id": 6,
       "legend": {
         "avg": false,
@@ -1498,9 +1471,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1568,14 +1539,12 @@
       "dashes": false,
       "datasource": "Prometheus",
       "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 12,
         "x": 12,
         "y": 36
       },
-      "hiddenSeries": false,
       "id": 12,
       "legend": {
         "avg": false,
@@ -1590,9 +1559,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1660,14 +1627,12 @@
       "datasource": "Prometheus",
       "description": "Consul uses a network tomography system to compute network coordinates for nodes in the cluster. These coordinates allow the network round trip time to be estimated between any two nodes using a very simple calculation. This allows for many useful applications, such as finding the service node nearest a requesting node, or failing over to services in the next closest datacenter.",
       "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 12,
         "x": 0,
         "y": 42
       },
-      "hiddenSeries": false,
       "id": 13,
       "legend": {
         "avg": false,
@@ -1682,9 +1647,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1753,14 +1716,12 @@
       "datasource": "Prometheus",
       "description": "",
       "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 12,
         "x": 12,
         "y": 43
       },
-      "hiddenSeries": false,
       "id": 24,
       "legend": {
         "avg": false,
@@ -1775,9 +1736,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1852,14 +1811,12 @@
       "datasource": "Prometheus",
       "description": "",
       "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 12,
         "x": 0,
         "y": 49
       },
-      "hiddenSeries": false,
       "id": 23,
       "legend": {
         "avg": false,
@@ -1874,9 +1831,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -1945,14 +1900,12 @@
       "datasource": "Prometheus",
       "description": "",
       "fill": 1,
-      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 12,
         "x": 0,
         "y": 56
       },
-      "hiddenSeries": false,
       "id": 26,
       "legend": {
         "avg": false,
@@ -1967,9 +1920,7 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
+      "options": {},
       "percentage": false,
       "pointradius": 5,
       "points": false,
@@ -2038,24 +1989,18 @@
     }
   ],
   "refresh": false,
-  "schemaVersion": 22,
+  "schemaVersion": 18,
   "style": "dark",
   "tags": [],
   "templating": {
     "list": [
       {
         "allValue": null,
-        "current": {
-          "isNone": true,
-          "selected": false,
-          "text": "None",
-          "value": ""
-        },
+        "current": {},
         "datasource": "Prometheus",
         "definition": "label_values(consul_memberlist_gossip_sum, instance)",
         "hide": 0,
         "includeAll": false,
-        "index": -1,
         "label": null,
         "multi": false,
         "name": "consul",
@@ -2103,10 +2048,7 @@
     ]
   },
   "timezone": "browser",
-  "title": "Consul Cluster",
+  "title": "Consul Monitoring",
   "uid": "BrxaID4Wz",
-  "variables": {
-    "list": []
-  },
   "version": 1
 }
