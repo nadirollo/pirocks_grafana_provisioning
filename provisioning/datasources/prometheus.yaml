@@ -14,4 +14,4 @@ datasources:
     readOnly: false
     type: prometheus
     typeLogoUrl: public/app/plugins/datasource/prometheus/img/prometheus_logo.svg
-    url: http://prometheus.service.sentella.systems:9090
+    url: http://gateway.service.sentella.systems/prometheus/
