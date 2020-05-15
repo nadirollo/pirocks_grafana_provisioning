@@ -19,11 +19,11 @@ providers:
     options:
       path: /local/dashboards/consul
 
-  - name: 'general'
+  - name: 'system'
     orgId: 1
-    folder: 'General'
+    folder: 'System'
     type: file
     disableDeletion: false
     editable: false
     options:
-      path: /local/dashboards/general
+      path: /local/dashboards/system
